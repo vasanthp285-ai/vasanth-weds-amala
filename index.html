@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasanth & Amala Christy | Wedding Invitation</title>
+<style>
+:root{--wine:#6b2338;--gold:#c69b52;--cream:#fff8ed;--ink:#3b2630}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:42px 18px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,#fffdf7 0,#f8e8d7 48%,#e8c9b2 100%)}
+.hero:before,.hero:after{content:"✦";position:absolute;color:#c69b52;font-size:30px;opacity:.65}
+.hero:before{top:9%;left:12%}.hero:after{bottom:12%;right:13%}
+.frame{max-width:760px;width:100%;border:1px solid var(--gold);outline:1px solid #c69b5277;outline-offset:8px;padding:clamp(28px,7vw,65px) 20px;background:#fffaf2d9;box-shadow:0 18px 60px #5c2c3218}
+.kicker{letter-spacing:.28em;text-transform:uppercase;font:12px Arial,sans-serif;color:var(--wine)}
+h1{font-size:clamp(42px,9vw,78px);font-weight:normal;color:var(--wine);line-height:1.06;margin:22px 0 10px}
+.amp{font-size:34px;color:var(--gold);font-style:italic}
+.sub{font-size:19px;line-height:1.7;margin:22px auto;max-width:540px}
+.rule{width:90px;height:1px;background:var(--gold);margin:24px auto}
+.date{font-size:clamp(22px,4vw,30px);color:var(--wine);letter-spacing:.06em}
+.time{font:14px Arial,sans-serif;letter-spacing:.18em;margin-top:9px}
+section{padding:70px 18px;text-align:center}
+h2{font-weight:normal;color:var(--wine);font-size:clamp(30px,6vw,43px);margin:0 0 18px}
+.copy{max-width:680px;margin:auto;font-size:18px;line-height:1.8}
+.photos{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin:34px auto;max-width:850px}
+.photo-card{width:min(330px,90vw);padding:12px;background:white;border:1px solid #e6d2b5;box-shadow:0 8px 24px #42212a12}
+.photo-card img{width:100%;height:350px;object-fit:cover;background:#f1e4d5;display:block}
+.photo-card label{display:block;padding:12px 4px 3px;font-size:19px;color:var(--wine)}
+.upload{font:13px Arial,sans-serif;color:#6c5960;margin:9px auto 0;display:block;max-width:260px}
+.details{background:#f3e4d6}
+.detail-box{max-width:620px;margin:28px auto 0;padding:30px 18px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.venue{font-size:25px;color:var(--wine);margin:12px}
+.count{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:28px 0}
+.unit{min-width:75px;padding:15px 12px;background:#fffaf2;border:1px solid #dec69f}
+.unit strong{display:block;font-size:28px;color:var(--wine);font-weight:normal}
+.unit span{font:10px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.music{margin:25px auto 0;max-width:500px}
+button{background:var(--wine);color:white;border:0;padding:12px 20px;border-radius:2px;font:13px Arial,sans-serif;letter-spacing:.08em;cursor:pointer}
+footer{padding:32px 18px;text-align:center;background:var(--wine);color:#fff2e3;font-size:17px}
+footer span{color:#e7c78e}
+@media(max-width:480px){.photo-card img{height:300px}.sub{font-size:17px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="frame">
+    <div class="kicker">With the blessings of God and our families</div>
+    <div class="rule"></div>
+    <div class="kicker">Together with joyful hearts</div>
+    <h1>Vasanth<br><span class="amp">&amp;</span><br>Amala Christy</h1>
+    <p class="sub">Request the pleasure of your company<br>as we celebrate the beginning of our new journey together.</p>
+    <div class="rule"></div>
+    <div class="date">20 January 2027</div>
+    <div class="time">WEDNESDAY&nbsp; • &nbsp;6:30 AM</div>
+    <p class="sub" style="margin-bottom:0">Your presence and blessings will make our day special.</p>
+  </div>
+</header>
+
+<section>
+  <h2>The Couple</h2>
+  <p class="copy">A day of love, faith and new beginnings. We warmly invite you to join us and bless our wedding.</p>
+  <div class="photos">
+    <div class="photo-card">
+      <img id="groomPhoto" alt="Groom photo placeholder" src="https://placehold.co/600x750/f0e2d2/6b2338?text=Groom+Photo">
+      <label>Vasanth</label>
+      <input class="upload" type="file" accept="image/*" onchange="loadPhoto(event,'groomPhoto')">
+    </div>
+    <div class="photo-card">
+      <img id="bridePhoto" alt="Bride photo placeholder" src="https://placehold.co/600x750/f0e2d2/6b2338?text=Bride+Photo">
+      <label>Amala Christy</label>
+      <input class="upload" type="file" accept="image/*" onchange="loadPhoto(event,'bridePhoto')">
+    </div>
+  </div>
+  <p class="upload">Choose your photos above to preview them on this page.</p>
+</section>
+
+<section class="details">
+  <h2>Wedding Ceremony</h2>
+  <div class="detail-box">
+    <div class="kicker">The wedding will take place at</div>
+    <div class="venue">Komarapalayam Church</div>
+    <div class="date" style="font-size:22px">20 January 2027</div>
+    <div class="time">AT 6:30 IN THE MORNING</div>
+  </div>
+  <h2 style="margin-top:48px">Counting the Moments</h2>
+  <div class="count" id="countdown">
+    <div class="unit"><strong id="days">—</strong><span>Days</span></div>
+    <div class="unit"><strong id="hours">—</strong><span>Hours</span></div>
+    <div class="unit"><strong id="minutes">—</strong><span>Minutes</span></div>
+    <div class="unit"><strong id="seconds">—</strong><span>Seconds</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>A Note on Music</h2>
+  <p class="copy">You can add your licensed copy of the “Thendral Vanthu Theendum Pothu” instrumental/BGM here. The music file is not included in this template.</p>
+  <div class="music">
+    <input class="upload" id="musicFile" type="file" accept="audio/*">
+    <audio id="audio" controls style="width:100%;margin-top:12px;display:none"></audio>
+  </div>
+</section>
+
+<footer>With love and blessings,<br><span>Vasanth &amp; Amala Christy</span></footer>
+
+<script>
+function loadPhoto(event,id){
+  const file=event.target.files && event.target.files[0];
+  if(file){document.getElementById(id).src=URL.createObjectURL(file);}
+}
+document.getElementById('musicFile').addEventListener('change',function(e){
+  const f=e.target.files && e.target.files[0];
+  if(f){const a=document.getElementById('audio');a.src=URL.createObjectURL(f);a.style.display='block';}
+});
+function updateCountdown(){
+  const target=new Date('2027-01-20T06:30:00+05:30').getTime();
+  let diff=target-Date.now(); if(diff<0)diff=0;
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
+  document.getElementById('days').textContent=d;
+  document.getElementById('hours').textContent=h;
+  document.getElementById('minutes').textContent=m;
+  document.getElementById('seconds').textContent=s;
+}
+updateCountdown();setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
