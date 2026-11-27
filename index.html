@@ -267,6 +267,34 @@ h2 {
     color: #876d69;
 }
 
+/* FLOATING BACKGROUND MUSIC BUTTON */
+
+.music-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    background: rgba(43, 9, 21, 0.92);
+    color: #fff8ef;
+    font: 11px/1 Arial, sans-serif;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.music-btn:hover {
+    background: var(--wine2);
+    transform: translateY(-1px);
+}
+
 /* FOOTER */
 
 footer {
@@ -292,12 +320,26 @@ footer strong {
         font-size: 16px;
     }
 
+    .music-btn {
+        right: 14px;
+        bottom: 14px;
+        padding: 9px 14px;
+    }
+
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- BACKGROUND AUDIO (replace src with your MP3 file path/name) -->
+<audio id="bg-music" src="wedding-song.mp3" loop preload="metadata"></audio>
+
+<button type="button" class="music-btn" id="music-toggle" aria-label="Toggle background music" aria-pressed="false">
+    <span id="music-icon">♪</span>
+    <span id="music-label">Play Music</span>
+</button>
 
 <!-- WEDDING INVITATION OPENING -->
 
@@ -435,7 +477,7 @@ footer strong {
 </footer>
 
 
-<!-- COUNTDOWN JAVASCRIPT -->
+<!-- COUNTDOWN & BACKGROUND MUSIC JAVASCRIPT -->
 
 <script>
 
@@ -477,6 +519,51 @@ function tick() {
 tick();
 
 setInterval(tick, 1000);
+
+/* BACKGROUND MUSIC CONTROLS */
+
+const audio = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-toggle');
+const musicIcon = document.getElementById('music-icon');
+const musicLabel = document.getElementById('music-label');
+
+function updateMusicUI(isPlaying) {
+    musicBtn.setAttribute('aria-pressed', String(isPlaying));
+    musicIcon.textContent = isPlaying ? '❚❚' : '♪';
+    musicLabel.textContent = isPlaying ? 'Pause Music' : 'Play Music';
+}
+
+function playMusic() {
+    return audio.play().then(() => {
+        updateMusicUI(true);
+    }).catch(() => {
+        updateMusicUI(false);
+    });
+}
+
+musicBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        playMusic();
+    } else {
+        audio.pause();
+        updateMusicUI(false);
+    }
+});
+
+// Attempt autoplay on load; if blocked by browser, start on first user gesture
+window.addEventListener('load', () => {
+    playMusic();
+});
+
+document.addEventListener('pointerdown', function onFirstInteraction() {
+    if (audio.paused) {
+        playMusic();
+    }
+    document.removeEventListener('pointerdown', onFirstInteraction);
+}, { once: true });
+
+audio.addEventListener('play', () => updateMusicUI(true));
+audio.addEventListener('pause', () => updateMusicUI(false));
 
 </script>
 
